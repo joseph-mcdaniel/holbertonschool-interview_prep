@@ -7,16 +7,18 @@
  */
 int check_cycle(listint_t *list)
 {
-	/* 1. If the current node is already in our set
-	 we have a cycle. Return 1*/
-	/* 2. If the current node is NULL, we've hit the end of the list. Return 0 */
-	/* Else throw the current node in our set and keep going */
+	/**
+	 * 1. If the current node is already in our set
+	 * we have a cycle. Return 1
+	 * 2. If the current node is NULL, we've hit the end of the list. Return 0
+	 * Else throw the current node in our set and keep going
+	 */
 
 	const listint_t *slow = list;
 	const listint_t *fast = list;
 
 
-	while (fast != NULL)
+	while (fast != NULL && fast->next != NULL)
 	{
 		slow = slow->next;
 		fast = fast->next->next;

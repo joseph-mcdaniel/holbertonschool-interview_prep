@@ -37,19 +37,11 @@ listint_t *insert_node(listint_t **head, int number)
 
 	/*traverse and add node in sorted order*/
 	temp = *head;
-	while (temp->next != NULL)
+	while (temp->next != NULL && number > temp->next->n)
 	{
-		if (number > temp->next->n)
-		{
-			temp = temp->next;
-		}
-		else
-		{
-			node->next = temp->next;
-			temp->next = node;
-			return (node);
-		}
+		temp = temp->next;
 	}
+	node->next = temp->next;
 	temp->next = node;
 	return (node);
 }

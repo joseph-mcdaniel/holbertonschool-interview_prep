@@ -19,20 +19,21 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 
 	node->n = number;
+	node->next = NULL;
+
+	/* add node to empty list */
+	if (*head == NULL)
+	{
+		*head = node;
+		return (node);
+
 	/* add node at beginning of list */
 	if (node->n < (*head)->n)
 	{
 		node->next = *head;
 		*head = node;
 		return (node);
-	}
-	/* add node to empty list */
-	if (*head == NULL)
-	{
-		node->next = NULL;
-		*head = node;
-		return (node);
-	}
+	}}
 
 	/*traverse and add node in sorted order*/
 	temp = *head;
